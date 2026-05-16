@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业级 AI 服务运营平台 - 贾昱雅</title>
+    <meta
+      name="description"
+      content="企业级 AI 服务运营平台是面向大型公共空间运营方的 B 端 AI 运营中枢，以服务请求工单闭环为核心商业锚点。"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body class="page-detail">
+    <!-- Global Tech Background -->
+            <div class="site-bg" aria-hidden="true">
+      <div class="bg-base"></div>
+      <div class="bg-aurora bg-aurora-1"></div>
+      <div class="bg-aurora bg-aurora-2"></div>
+
+      <svg class="bg-fiber-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="fiberEdgeFade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="white" stop-opacity="0" />
+            <stop offset="26%" stop-color="white" stop-opacity="0.04" />
+            <stop offset="44%" stop-color="white" stop-opacity="0.34" />
+            <stop offset="70%" stop-color="white" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="white" stop-opacity="1" />
+          </linearGradient>
+
+          <mask id="fiberMask">
+            <rect x="0" y="0" width="1440" height="900" fill="url(#fiberEdgeFade)" />
+          </mask>
+
+          <linearGradient id="ambientGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+            <stop offset="35%" stop-color="rgba(147,197,253,0.14)" />
+            <stop offset="62%" stop-color="rgba(255,255,255,0.18)" />
+            <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+          </linearGradient>
+
+          <linearGradient id="silkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+            <stop offset="16%" stop-color="rgba(191,219,254,0.16)" />
+            <stop offset="36%" stop-color="rgba(147,197,253,0.34)" />
+            <stop offset="56%" stop-color="rgba(255,255,255,0.48)" />
+            <stop offset="76%" stop-color="rgba(96,165,250,0.30)" />
+            <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+          </linearGradient>
+
+          <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+            <stop offset="32%" stop-color="rgba(255,255,255,0.22)" />
+            <stop offset="52%" stop-color="rgba(255,255,255,0.68)" />
+            <stop offset="70%" stop-color="rgba(96,165,250,0.30)" />
+            <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+          </linearGradient>
+
+          <filter id="ambientBlur" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="16" />
+          </filter>
+          <filter id="tinyGlow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="0.45" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="smallGlow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="0.9" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <g class="fiber-bundle" mask="url(#fiberMask)">
+          <g class="fiber-ambient">
+            <path d="M1530,790 C1250,850 1040,808 780,742 C600,696 440,720 260,795" />
+            <path d="M1500,690 C1260,730 1030,710 770,650 C590,610 480,635 330,720" />
+            <path d="M1610,860 C1330,905 1090,880 840,815 C645,765 470,780 230,870" />
+            <path d="M1510,420 C1240,500 1030,548 780,520 C610,500 500,545 390,620" />
+            <path d="M1460,170 C1210,235 1045,325 780,365 C635,388 540,430 460,505" />
+            <path d="M1640,930 C1350,890 1120,900 900,850 C700,805 480,815 220,875" />
+            <path d="M1560,610 C1320,650 1095,650 860,608 C680,576 535,600 400,670" />
+            <path d="M1585,755 C1345,820 1115,800 890,735 C710,684 560,688 360,770" />
+            <path d="M1495,310 C1265,392 1080,472 838,486 C655,496 530,545 390,642" />
+            <path d="M1670,815 C1410,870 1165,846 925,780 C735,728 555,745 285,858" />
+          </g>
+
+          <g class="fiber-silk">
+            <path d="M1560,795 C1300,842 1092,808 874,748 C722,707 590,688 470,712 C360,734 250,775 120,842" />
+            <path d="M1518,760 C1272,808 1084,782 885,724 C728,678 600,660 502,685 C410,708 310,754 180,812" />
+            <path d="M1604,842 C1340,876 1125,842 910,782 C742,736 610,710 492,730 C386,748 270,800 92,888" />
+            <path d="M1474,704 C1238,744 1048,736 842,684 C684,644 572,644 472,690 C382,730 290,790 170,858" />
+            <path d="M1620,895 C1375,904 1145,880 930,826 C760,784 605,770 460,804 C330,832 218,872 92,914" />
+            <path d="M1492,630 C1268,678 1062,682 858,630 C700,590 585,600 475,652 C386,694 300,760 190,828" />
+            <path d="M1548,580 C1292,628 1080,648 862,596 C698,558 592,568 500,618 C410,666 320,720 210,772" />
+            <path d="M1466,510 C1248,570 1060,608 850,576 C700,554 604,568 520,620 C444,668 350,714 238,760" />
+            <path d="M1568,460 C1328,526 1092,584 858,548 C696,522 602,534 520,578 C438,622 366,674 270,728" />
+            <path d="M1498,388 C1260,458 1068,530 842,514 C688,502 590,526 506,574 C424,620 350,666 278,704" />
+            <path d="M1512,312 C1270,390 1086,482 850,482 C690,482 590,512 510,558 C438,600 365,648 285,692" />
+            <path d="M1448,222 C1238,302 1068,405 835,432 C690,448 596,486 516,530 C448,568 390,610 325,660" />
+            <path d="M1575,150 C1310,226 1138,336 892,385 C735,416 628,462 542,512 C470,554 410,594 350,638" />
+            <path d="M1590,260 C1326,330 1120,410 884,438 C720,458 620,490 538,540 C452,592 384,632 310,668" />
+            <path d="M1540,710 C1300,765 1115,748 922,690 C765,644 632,632 520,672 C418,708 340,766 230,842" />
+            <path d="M1650,745 C1392,800 1160,792 936,724 C762,672 622,660 498,706 C398,742 302,798 155,872" />
+            <path d="M1510,820 C1278,852 1088,822 900,770 C742,726 640,716 530,744 C424,772 312,824 165,890" />
+            <path d="M1598,670 C1348,720 1130,722 912,665 C740,620 630,620 526,662 C432,700 338,752 228,815" />
+            <path d="M1460,600 C1248,642 1060,654 870,606 C715,568 610,576 516,624 C430,668 352,718 260,776" />
+            <path d="M1520,540 C1298,594 1100,616 890,572 C724,538 616,546 526,592 C445,634 378,680 292,738" />
+            <path d="M1440,462 C1234,520 1048,558 846,532 C696,512 608,528 536,574 C464,620 398,664 320,710" />
+            <path d="M1485,360 C1262,432 1086,492 862,492 C710,492 614,518 538,562 C466,604 408,640 342,684" />
+            <path d="M1610,910 C1370,892 1160,862 940,805 C768,760 625,748 486,782 C350,815 230,858 72,910" />
+            <path d="M1548,878 C1322,884 1120,856 918,800 C758,756 622,742 500,770 C384,796 260,836 116,890" />
+            <path d="M1660,812 C1406,846 1182,826 962,765 C795,718 654,704 520,735 C396,762 286,815 130,880" />
+            <path d="M1578,735 C1350,780 1140,766 932,708 C770,662 648,650 532,690 C424,728 320,780 190,850" />
+            <path d="M1502,285 C1290,350 1128,430 900,458 C742,478 642,505 560,552 C492,590 430,630 364,672" />
+            <path d="M1532,188 C1302,258 1138,360 906,405 C754,434 650,478 570,526 C500,568 442,608 382,648" />
+            <path d="M1640,390 C1398,448 1190,522 950,526 C786,530 674,548 586,594 C510,632 446,666 374,704" />
+            <path d="M1588,500 C1348,558 1136,610 906,590 C744,576 632,584 540,630 C454,672 380,716 290,770" />
+            <path d="M1490,930 C1260,892 1080,870 886,815 C735,772 610,770 492,805 C384,838 280,878 125,922" />
+            <path d="M1680,640 C1415,682 1190,690 952,632 C778,590 654,590 542,636 C442,676 352,726 236,792" />
+            <path d="M1625,705 C1390,742 1185,736 980,682 C820,640 700,636 582,675 C470,712 372,770 250,835" />
+            <path d="M1545,760 C1315,805 1110,790 912,730 C760,684 632,678 515,718 C410,754 310,812 172,875" />
+            <path d="M1665,865 C1418,878 1202,852 986,796 C810,750 662,740 518,776 C386,810 260,858 86,920" />
+            <path d="M1510,675 C1288,724 1098,718 902,658 C748,612 626,612 514,658 C420,696 328,754 214,822" />
+            <path d="M1590,620 C1358,670 1150,680 930,625 C760,584 642,590 534,638 C436,682 346,736 235,800" />
+            <path d="M1478,570 C1265,622 1076,642 875,598 C720,564 612,574 516,624 C428,668 348,724 248,785" />
+            <path d="M1618,530 C1385,586 1170,630 940,602 C780,582 656,590 548,642 C452,690 370,744 260,810" />
+            <path d="M1545,438 C1320,506 1124,560 902,548 C742,540 632,560 532,612 C448,656 375,704 292,752" />
+            <path d="M1595,350 C1365,420 1168,490 930,502 C760,510 642,536 545,586 C462,628 395,674 318,720" />
+            <path d="M1488,255 C1275,335 1095,420 862,452 C710,472 612,506 528,554 C454,596 394,640 326,682" />
+            <path d="M1660,775 C1425,820 1204,810 980,748 C810,702 670,698 536,738 C420,772 305,832 146,900" />
+            <path d="M1538,900 C1310,878 1115,845 908,792 C750,752 620,748 495,782 C380,814 274,865 118,930" />
+          </g>
+
+          <g class="fiber-micro">
+            <path d="M1542,778 C1315,814 1116,790 912,738 C756,698 628,684 512,712 C410,736 310,778 188,835" />
+            <path d="M1570,812 C1338,848 1138,820 926,762 C768,720 642,708 528,736 C428,758 318,804 170,874" />
+            <path d="M1490,690 C1260,738 1080,726 882,676 C724,638 606,638 500,682 C410,720 326,775 226,835" />
+            <path d="M1608,875 C1372,886 1160,858 940,810 C770,772 620,766 482,798 C358,826 246,870 92,925" />
+            <path d="M1516,615 C1296,660 1098,666 894,620 C736,584 620,590 518,636 C426,676 344,728 244,782" />
+            <path d="M1478,536 C1260,588 1070,620 860,588 C708,566 610,576 522,624 C440,666 362,710 268,754" />
+            <path d="M1560,478 C1328,538 1110,590 884,560 C728,538 624,548 538,592 C456,634 382,682 294,730" />
+            <path d="M1488,402 C1272,468 1086,532 866,520 C710,512 610,534 526,580 C450,622 384,664 308,708" />
+            <path d="M1538,338 C1305,404 1120,478 894,482 C734,486 628,512 544,558 C470,598 410,638 342,680" />
+            <path d="M1458,240 C1248,318 1078,412 846,438 C704,454 612,492 532,538 C462,578 402,620 334,662" />
+            <path d="M1582,166 C1334,240 1150,342 912,390 C760,420 660,462 578,512 C508,552 450,594 386,636" />
+            <path d="M1655,700 C1400,748 1180,748 954,692 C782,650 650,645 532,686 C432,722 338,772 220,842" />
+            <path d="M1528,845 C1300,866 1098,836 898,784 C746,744 634,736 520,762 C412,788 302,836 160,900" />
+            <path d="M1618,588 C1378,638 1160,654 930,610 C760,578 648,580 548,626 C454,668 370,718 260,788" />
+            <path d="M1508,918 C1282,884 1088,856 892,805 C742,766 620,762 502,796 C390,828 286,870 130,924" />
+            <path d="M1668,812 C1420,840 1198,822 974,762 C808,718 668,704 536,736 C414,764 302,815 146,884" />
+            <path d="M1600,735 C1370,770 1160,760 950,704 C790,662 660,658 540,696 C436,728 336,782 210,850" />
+            <path d="M1555,788 C1328,826 1130,808 928,752 C772,710 646,704 526,738 C418,768 310,820 166,888" />
+            <path d="M1642,882 C1408,884 1190,854 970,804 C800,766 646,758 500,792 C364,824 252,870 98,926" />
+            <path d="M1498,650 C1278,698 1088,696 890,646 C732,606 616,612 512,660 C422,702 342,756 236,820" />
+            <path d="M1588,558 C1355,612 1142,640 916,602 C756,574 640,582 536,632 C442,676 360,730 252,794" />
+            <path d="M1518,475 C1298,535 1105,582 888,560 C732,544 626,558 530,608 C448,650 374,700 292,748" />
+            <path d="M1635,420 C1400,482 1190,538 952,534 C790,532 668,552 560,602 C470,644 398,692 316,735" />
+            <path d="M1560,300 C1340,372 1155,452 918,476 C750,494 638,526 542,574 C462,614 398,654 330,696" />
+            <path d="M1470,205 C1265,286 1095,388 858,428 C710,452 612,490 530,536 C462,576 402,620 340,660" />
+            <path d="M1670,675 C1425,720 1198,724 966,670 C792,628 660,628 540,672 C434,710 342,762 220,832" />
+            <path d="M1598,825 C1365,850 1150,828 940,770 C778,724 650,716 520,752 C400,786 292,840 138,904" />
+            <path d="M1518,872 C1290,862 1096,832 900,780 C746,740 620,738 500,772 C386,804 282,852 130,912" />
+          </g>
+
+          <g class="fiber-highlight">
+            <path d="M1530,740 C1300,790 1110,770 915,708 C780,666 660,650 540,688" style="animation-delay: 0s" />
+            <path d="M1600,848 C1370,875 1160,845 940,788 C780,748 648,735 520,766" style="animation-delay: -5s" />
+            <path d="M1505,570 C1285,625 1090,642 884,596 C735,564 624,570 535,618" style="animation-delay: -11s" />
+            <path d="M1455,255 C1262,332 1088,420 858,446 C716,462 620,492 542,538" style="animation-delay: -17s" />
+            <path d="M1585,430 C1360,500 1134,558 906,548 C752,542 642,556 548,600" style="animation-delay: -9s" />
+            <path d="M1640,905 C1388,895 1162,862 930,805 C762,764 626,755 482,790" style="animation-delay: -21s" />
+            <path d="M1500,682 C1288,730 1102,724 910,672 C768,633 642,630 535,670" style="animation-delay: -14s" />
+            <path d="M1552,330 C1322,402 1138,480 906,492 C744,500 636,526 552,574" style="animation-delay: -3s" />
+            <path d="M1620,792 C1400,825 1190,812 968,752 C800,706 664,694 530,730" style="animation-delay: -19s" />
+            <path d="M1588,620 C1358,674 1145,682 930,626 C770,586 650,590 540,638" style="animation-delay: -7s" />
+            <path d="M1660,870 C1422,880 1206,850 980,790 C812,746 666,738 522,776" style="animation-delay: -23s" />
+            <path d="M1530,450 C1312,520 1120,570 902,558 C750,550 640,565 548,610" style="animation-delay: -13s" />
+          </g>
+        </g>
+      </svg>
+
+      <div class="bg-sparkles">
+        <div class="particle p-0" style="width: 2.4px; height: 2.4px; top: 28%; left: 86%; animation-duration: 26s; animation-delay: -2s;"></div>
+        <div class="particle p-1" style="width: 1.8px; height: 1.8px; top: 44%; left: 91%; animation-duration: 30s; animation-delay: -10s;"></div>
+        <div class="particle p-2" style="width: 2.8px; height: 2.8px; top: 65%; left: 82%; animation-duration: 28s; animation-delay: -6s;"></div>
+        <div class="particle p-3" style="width: 2.9px; height: 2.9px; top: 82%; left: 89%; animation-duration: 34s; animation-delay: -16s;"></div>
+        <div class="particle p-4" style="width: 1.7px; height: 1.7px; top: 38%; left: 72%; animation-duration: 29s; animation-delay: -4s;"></div>
+        <div class="particle p-5" style="width: 2.2px; height: 2.2px; top: 74%; left: 76%; animation-duration: 27s; animation-delay: -14s;"></div>
+        <div class="particle p-6" style="width: 2.6px; height: 2.6px; top: 56%; left: 94%; animation-duration: 32s; animation-delay: -8s;"></div>
+        <div class="particle p-7" style="width: 1.8px; height: 1.8px; top: 18%; left: 79%; animation-duration: 36s; animation-delay: -20s;"></div>
+        <div class="particle p-8" style="width: 2.4px; height: 2.4px; top: 86%; left: 68%; animation-duration: 31s; animation-delay: -12s;"></div>
+        <div class="particle p-9" style="width: 1.6px; height: 1.6px; top: 70%; left: 92%; animation-duration: 33s; animation-delay: -18s;"></div>
+      </div>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-back" href="index.html#projects" aria-label="返回项目列表">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </a>
+          <a class="logo" href="index.html">贾昱雅</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html#about">个人能力</a></li>
+          <li><a href="index.html#projects">核心项目</a></li>
+          <li><a href="index.html#experience">工作经历</a></li>
+          <li><a href="index.html#contact">联系方式</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <header class="detail-hero section-reveal">
+      <div class="hero-bg-grid subtle"></div>
+      <div class="container relative">
+        <div class="detail-tags">
+          <span class="badge primary">B 端 SAAS</span
+          ><span class="badge">工单闭环</span><span class="badge">多租户</span
+          ><span class="badge">RULEGATE</span><span class="badge">HITL</span>
+        </div>
+
+        <h1>企业级 AI 服务运营平台</h1>
+        <p class="tagline">
+          面向商业综合体、景区 / 文旅街区、园区与高端楼宇等大型公共空间运营方的
+          B 端 AI 运营中枢。 把咨询、报修、投诉、预约与 IoT
+          告警等多入口请求，转化为可建单、可派单、可履约、可复盘的 B 端 AI
+          服务运营闭环。
+        </p>
+
+        <div class="project-brief bento-card">
+          <div class="brief-item">
+            <div class="b-lbl">时间</div>
+            <div class="b-val">2023.08 – 2026.04</div>
+          </div>
+          <div class="brief-item">
+            <div class="b-lbl">角色</div>
+            <div class="b-val">AI 产品经理（项目主导）</div>
+          </div>
+          <div class="brief-item">
+            <div class="b-lbl">团队</div>
+            <div class="b-val">5 人（算 / 研 / 测 / 数 / 前各 1）</div>
+          </div>
+          <div class="brief-item">
+            <div class="b-lbl">状态</div>
+            <div class="b-val">
+              <span class="status-dot blue"></span>分阶段商业化中
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-content section-reveal">
+      <div class="container">
+        <div class="project-overview">
+          <div class="overview-grid">
+            <div class="overview-card">
+              <h3>项目总览</h3>
+              <div class="overview-list">
+                <div class="overview-item">
+                  <span class="k">项目定位</span>
+                  <span class="v">面向商业综合体、景区、园区与高端楼宇的 B 端 AI 服务运营中枢。</span>
+                </div>
+                <div class="overview-item">
+                  <span class="k">我负责</span>
+                  <span class="v">需求分析 / 产品架构 / Agent 流程设计 / 原型设计 / 评测指标 / 商业价值测算</span>
+                </div>
+                <div class="overview-item">
+                  <span class="k">核心能力</span>
+                  <span class="v">RAG / Agent / HITL / RuleGate / Workflow / Metrics</span>
+                </div>
+              </div>
+            </div>
+            <div class="overview-card overview-metrics">
+              <div class="metric">
+                <div class="m-val highlight">≥95%</div>
+                <div class="m-lbl">工单闭环率</div>
+              </div>
+              <div class="metric">
+                <div class="m-val highlight">1.4-2.1x</div>
+                <div class="m-lbl">基准 ROI</div>
+              </div>
+              <div class="metric">
+                <div class="m-val highlight">6-12</div>
+                <div class="m-lbl">回本月数</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose-block">
+          <h2><span class="num">01</span> 项目背景</h2>
+          <p>
+            面向商业综合体、景区 /
+            文旅街区、园区与高端楼宇等大型公共空间运营方，把咨询、报修、投诉、预约与
+            IoT 告警等多入口请求，转化为可建单、可派单、可履约、可复盘的 B 端 AI
+            服务运营闭环。
+          </p>
+
+          <div class="callout-box info">
+            <div class="callout-title">产品定位：</div>
+            <p>
+              B 端 AI 服务运营平台 +
+              服务对象端入口。服务对象端只是前台请求入口，核心价值发生在
+              <strong
+                >B
+                端运营工作台、工单闭环、任务调度、生产系统联动和运营复盘</strong
+              >中。
+            </p>
+          </div>
+        </div>
+
+        <figure class="prose-figure">
+          <img src="assets/images/xm2/03.webp" alt="企业级 AI 服务运营平台场景与产品定位" loading="lazy" />
+          <figcaption>从多入口服务请求切入，把前台咨询、报修、投诉和 IoT 告警转化为可闭环的 B 端运营对象。</figcaption>
+        </figure>
+
+        <div class="prose-block">
+          <h2><span class="num">02</span> 任务挑战</h2>
+          <ul class="styled-list">
+            <li>
+              <strong>多入口请求高度非结构化：</strong>电话 / 微信群 / 小程序 /
+              触摸屏 / 公众号 /
+              服务台分散，需要统一沉淀为服务请求、工单与任务卡。
+            </li>
+            <li>
+              <strong>多角色协同复杂：</strong
+              >客服、物业、工程、安保、商管与集团管理多角色协同，AI
+              输出必须遵守责任边界、权限、状态机与 SLA 规则。
+            </li>
+            <li>
+              <strong>高风险场景不可全自动：</strong>投诉、安全、赔偿、门禁、BMS
+              / BAS 与 IoT 告警等场景需要人审、留痕与降级。
+            </li>
+          </ul>
+        </div>
+
+        <div class="prose-block">
+          <h2><span class="num">03</span> 执行策略</h2>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h3>明确产品定位与商业切入口</h3>
+                <p>
+                  基于场景将平台定位为「B 端 AI 服务运营平台 +
+                  服务对象端入口」，以<strong>「周有效闭环服务请求数」</strong>作为北极星指标。关键判断：客流预测、能耗优化都有想象空间，但<strong>「服务请求工单闭环」才是最稳的首个商业版本</strong>——高频、刚需、可量化、易接生产系统。
+                </p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h3>拆解服务运营与多角色协同流程</h3>
+                <p>
+                  梳理多角色的核心诉求，定义「服务请求 → 工单 → 任务卡 →
+                  履约凭证 → 评价 → 复盘」的主流程。
+                </p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h3>抽象核心业务对象与状态规则</h3>
+                <p>
+                  抽象 ServiceRequest、Ticket、TaskCard、ServiceSession
+                  等核心业务对象，明确工单状态流、SLA、优先级、责任人、履约凭证和超时升级规则。
+                </p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h3>定义 AI 能力边界与风险治理规则</h3>
+                <p>
+                  将 AI
+                  放在意图识别、信息补全、智能建单、派单建议等环节；对投诉、门禁控制、安全事件设置人工确认、权限校验和审计留痕。
+                </p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h3>规划版本分层与商业化路径</h3>
+                <p>
+                  将其拆分为<strong
+                    >工单基础版、标准运营版、空间运营版、专业调度版、能耗运维版和集团
+                    / 私有化版</strong
+                  >，明确基础能力、扩展能力和重集成能力的边界与报价逻辑。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="prose-figure">
+          <img src="assets/images/xm2/07.webp" alt="企业级 AI 服务运营平台执行策略与主流程" loading="lazy" />
+          <figcaption>围绕服务请求、工单、任务卡、履约凭证、评价与复盘，形成可量化的服务运营闭环。</figcaption>
+        </figure>
+
+        <div class="prose-block">
+          <h2><span class="num">04</span> 核心架构</h2>
+
+          <div class="arch-box">
+            <div class="arch-title">1 + 7 + 1</div>
+            <div class="arch-row">
+              <span class="arch-tag highlight">1 个主控编排 Agent</span>
+              <span class="arch-tag">7 类专业能力节点</span>
+              <span class="arch-tag outline">1 套规则治理层</span>
+            </div>
+          </div>
+
+          <div class="grid-card-3 mt-24">
+            <div class="bento-card inner">
+              <div class="icon-title">🛡️ 治理四件套</div>
+              <p>
+                <strong>RuleGate：</strong>高风险动作拦截<br /><strong
+                  >HITL：</strong
+                >投诉/安全/权限责任边界<br /><strong>DecisionLog：</strong
+                >决策逻辑可追溯<br /><strong>trace_id：</strong
+                >全链路覆盖核心行为
+              </p>
+            </div>
+            <div class="bento-card inner">
+              <div class="icon-title">💡 版本分层 (SKU)</div>
+              <p>
+                共 6 个 SKU 阶梯演进：L1 轻量接入快速形成价值，L3-L4
+                深度集成单独报价，避免首年现金 ROI 被深度集成拖垮。
+              </p>
+            </div>
+            <div class="bento-card inner">
+              <div class="icon-title">👁 Observability 前置</div>
+              <p>
+                把 trace_id、DecisionLog、标准事件属性以及运营驾驶舱设计直接写进
+                PRD 主体，坚决避免上线后补日志和报表。
+              </p>
+            </div>
+          </div>
+
+          <figure class="prose-figure">
+            <img src="assets/images/xm2/10.webp" alt="企业级 AI 服务运营平台核心架构与治理机制" loading="lazy" />
+            <figcaption>以主控编排 Agent、专业能力节点和规则治理层控制 AI 在高风险服务场景中的边界。</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose-block">
+          <h2><span class="num">05</span> 项目成果</h2>
+          <div class="result-box">
+            <div class="r-col">
+              <h3>产品规划与架构设计</h3>
+              <p>
+                完成产品规划设计，形成「AI 服务入口 → 智能建单 → 派单推荐 →
+                任务卡 → 履约凭证 → 运营复盘」端到端方案。<br />设计 10
+                个核心数据对象、6 个商业版本 SKU、5 个分场景 ROI 模型。
+              </p>
+            </div>
+            <div class="r-col">
+              <h3>商业级验收指标</h3>
+              <p>
+                工单闭环率 <strong>≥ 95%</strong>、SLA 达成率 ≥ 90%。AI
+                自动建单成功率
+                <strong>≥ 80%</strong>。<br />敏感问题转人工准确率
+                <strong>≥ 95%</strong>、高风险确认率
+                100%。派单与处理总时长大幅下降。
+              </p>
+            </div>
+            <div class="r-col">
+              <h3>分场景 ROI 测算</h3>
+              <p>
+                商业综合体基准 ROI <strong>1.4-1.8x</strong>、回本 7-12
+                个月。景区 ROI
+                <strong>1.6-2.1x</strong>。<br />成熟期综合毛利率预计
+                <strong>55%-68%</strong>。设定集团客户年收入 200 万 +天花板。
+              </p>
+            </div>
+          </div>
+
+          <figure class="prose-figure">
+            <img src="assets/images/xm2/13.webp" alt="企业级 AI 服务运营平台项目成果与 ROI 测算" loading="lazy" />
+            <figcaption>通过闭环率、SLA、自动建单成功率、转人工准确率和分场景 ROI 测算验证商业可行性。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section alt section-reveal">
+      <div class="container">
+        <div class="section-head text-center">
+          <div class="section-eyebrow">PROJECT DECK</div>
+          <h2 class="section-title">项目汇报材料</h2>
+          <p class="section-subtitle">点击图片查看大图 · 可用键盘左右键浏览</p>
+        </div>
+
+        <div class="gallery">
+          <!-- 主图 01-15 -->
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/01.webp"
+              alt="P01"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P01</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/02.webp"
+              alt="P02"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P02</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/03.webp"
+              alt="P03"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P03</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/04.webp"
+              alt="P04"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P04</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/05.webp"
+              alt="P05"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P05</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/06.webp"
+              alt="P06"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P06</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/07.webp"
+              alt="P07"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P07</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/08.webp"
+              alt="P08"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P08</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/09.webp"
+              alt="P09"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P09</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/10.webp"
+              alt="P10"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P10</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/11.webp"
+              alt="P11"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P11</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/12.webp"
+              alt="P12"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P12</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/13.webp"
+              alt="P13"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P13</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/14.webp"
+              alt="P14"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P14</div>
+          </div>
+          <div class="gallery-item" data-group="main">
+            <img
+              src="assets/images/xm2/15.webp"
+              alt="P15"
+              loading="lazy"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 9\'%3E%3Crect width=\'16\' height=\'9\' fill=\'%23f1f5f9\'/%3E%3C/svg%3E'
+              "
+            />
+            <div class="g-label">P15</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-info">
+            <a class="logo" href="index.html">贾昱雅</a>
+            <p>了解更多 AI 产品方案设计与业务落地细节。<br />随时联系交流。</p>
+          </div>
+          <div class="footer-links">
+            <a href="tel:15103313775" class="contact-btn">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              151 0331 3775
+            </a>
+            <a href="mailto:yuya_jia@163.com" class="contact-btn">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              yuya_jia@163.com
+            </a>
+            <a href="assets/resume.pdf" class="contact-btn primary" download="贾昱雅（硕士）-AI产品经理.pdf">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              下载简历 PDF
+            </a>
+          </div>
+        </div>
+        <div class="copyright">
+          <span>© 2026 贾昱雅</span>
+          <span class="separator"></span>
+          <span>AI Product Manager Portfolio</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/main.js"></script>
+  </body>
+</html>
