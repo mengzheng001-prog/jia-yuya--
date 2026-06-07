@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/assets/resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"resume.pdf\"; filename*=UTF-8''%E8%B4%BE%E6%98%B1%E9%9B%85%28%E7%A1%95%E5%A3%AB%29-AI%E4%BA%A7%E5%93%81.pdf"
+        }
+      ]
+    }
+  ]
+}
