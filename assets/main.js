@@ -108,49 +108,51 @@ function setupLightbox(galleryItems) {
 }
 
 function setupHorizontalScroll() {
-  const grid = document.querySelector('.other-grid');
-  if (!grid) return;
+  // 遍历所有 .other-grid-frame，让「其他项目」和「个人项目」两个区都生效
+  document.querySelectorAll('.other-grid-frame').forEach((frame) => {
+    const grid = frame.querySelector('.other-grid');
+    if (!grid) return;
 
-  // 卡片宽 380px + gap 24px = 404px 单次滚动距离
-  const STEP = 404;
-  const SCROLL_MULTIPLIER = 2.4; // 滚轮灵敏度倍数
+    // 卡片宽 380px + gap 24px = 404px 单次滚动距离
+    const STEP = 404;
+    const SCROLL_MULTIPLIER = 2.4; // 滚轮灵敏度倍数
 
-  // === 鼠标滚轮 → 横向滚动 ===
-  grid.addEventListener('wheel', (e) => {
-    if (e.deltaY === 0 || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    // === 鼠标滚轮 → 横向滚动 ===
+    grid.addEventListener('wheel', (e) => {
+      if (e.deltaY === 0 || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
 
-    const atStart = grid.scrollLeft <= 0;
-    const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1;
+      const atStart = grid.scrollLeft <= 0;
+      const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1;
 
-    if ((e.deltaY > 0 && atEnd) || (e.deltaY < 0 && atStart)) return;
+      if ((e.deltaY > 0 && atEnd) || (e.deltaY < 0 && atStart)) return;
 
-    e.preventDefault();
-    grid.scrollLeft += e.deltaY * SCROLL_MULTIPLIER;
-  }, { passive: false });
+      e.preventDefault();
+      grid.scrollLeft += e.deltaY * SCROLL_MULTIPLIER;
+    }, { passive: false });
 
-  // === 左右箭头按钮 ===
-  const prevBtn = document.querySelector('.grid-nav-prev');
-  const nextBtn = document.querySelector('.grid-nav-next');
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      grid.scrollBy({ left: -STEP, behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-      grid.scrollBy({ left: STEP, behavior: 'smooth' });
-    });
+    // === 左右箭头按钮（每个 frame 内独立查找）===
+    const prevBtn = frame.querySelector('.grid-nav-prev');
+    const nextBtn = frame.querySelector('.grid-nav-next');
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: -STEP, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: STEP, behavior: 'smooth' });
+      });
 
-    const updateBtns = () => {
-      const atStart = grid.scrollLeft <= 2;
-      const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 2;
-      prevBtn.disabled = atStart;
-      nextBtn.disabled = atEnd;
-    };
-    grid.addEventListener('scroll', updateBtns, { passive: true });
-    window.addEventListener('resize', updateBtns);
-    // 初始化
-    updateBtns();
-    setTimeout(updateBtns, 100); // 等图片加载完后再校准
-  }
+      const updateBtns = () => {
+        const atStart = grid.scrollLeft <= 2;
+        const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 2;
+        prevBtn.disabled = atStart;
+        nextBtn.disabled = atEnd;
+      };
+      grid.addEventListener('scroll', updateBtns, { passive: true });
+      window.addEventListener('resize', updateBtns);
+      updateBtns();
+      setTimeout(updateBtns, 100); // 等图片加载完后再校准
+    }
+  });
 }
 
 function setupGalleryFilter() {
